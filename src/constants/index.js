@@ -139,62 +139,70 @@ export const socialLinks = [
 	{
 		name: "GitHub",
 		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
-		link: "https://github.com/YourGitHubUsername",
+		link: "https://github.com/kavindu-mane",
 	},
 	{
 		name: "LinkedIn",
 		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
-		link: "https://www.linkedin.com/in/YourLinkedInUsername",
+		link: "https://www.linkedin.com/in/kavindu-wanniarachchi",
 	},
 ];
 
 export const projects = [
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-red",
-		name: "Amazon Price Tracker",
+		name: "CreateME",
 		description:
-			"Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.",
-		link: "https://github.com/adrianhajdin/pricewise",
+			"Create Amazing GitHub Profile README Without Coding.Show your skills, experience , projects and many more. Generate markdown for your profile with just few clicks!",
+		link: "https://github.com/kavindu-mane/CreateME",
+		techStack: ["React", "Bootstrap"],
 	},
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-green",
-		name: "Full Stack Threads Clone",
+		name: "React Percentage Bar",
 		description:
-			'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-		link: "https://github.com/adrianhajdin/threads",
+			"React Percentage Bar is more Customizable Circular and Linear percentage progress bar package for react apps.",
+		link: "https://github.com/kavindu-mane/react-percentage-bar/",
+		techStack: ["React", "npm", "css"],
 	},
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-blue",
-		name: "Car Finding App",
+		name: "IEEE Openday UWU 2023 Website",
 		description:
-			"Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.",
-		link: "https://github.com/adrianhajdin/project_next13_car_showcase",
+			"Uva Wellassa University IEEE Open day 2023 official website. This website help to get an idea about IEEE and register event for undergraduates.",
+		link: "https://github.com/SasanDilantha/IEEE_Openday_2023",
+		techStack: ["React", "Tailwind CSS", "Google Sheet API"],
 	},
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-pink",
-		name: "Full Stack Instagram Clone",
+		name: "GitHub Visitors Counter",
 		description:
-			"Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.",
-		link: "https://github.com/adrianhajdin/social_media_app",
+			"GitHub Visitors Counter is a counter that calculate GitHub profile viewers and show that value as a badge.",
+		link: "https://github.com/kavindu-mane/Visitors-Counter",
+		techStack: ["MongoDB", "Express.js"],
 	},
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-black",
-		name: "Real-Estate Application",
+		name: "WhatsSender",
 		description:
-			"Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.",
-		link: "https://github.com/adrianhajdin/projects_realestate",
+			"WhatsSender is an android app for open WhatsApp chat non-contacts phone numbers. Also this app support WhatsApp , WhatsApp Business and other modified versions.",
+		link: "https://github.com/kavindu-mane/WhatsSender",
+		techStack: ["Android", "Java"],
 	},
 	{
-		iconUrl: "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
 		theme: "btn-back-yellow",
-		name: "AI Summarizer Application",
+		name: "Eliger",
 		description:
-			"App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.",
-		link: "https://github.com/adrianhajdin/project_ai_summarizer",
+			"Eliger is a vehicle renting system. This project done with 5 other collaborators.It's help to find and rent vehicle with or without driver.This project contains web app and simple mobile app. ",
+		link: "https://github.com/kavindu-mane/Eliger",
+		techStack: ["React", "Tailwind CSS", "PHP", "Google Map API", "Flutter"],
+	},
+	{
+		theme: "btn-back-red",
+		name: "Hotel Yaala",
+		description:
+			"Landing page for wild area hotel called 'Hotel Yaala'.This landing page use simple and more attractive parallax effect and dark & light themes.",
+		link: "https://github.com/kavindu-mane/Hotel-Yaala",
+		techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
 	},
 ];

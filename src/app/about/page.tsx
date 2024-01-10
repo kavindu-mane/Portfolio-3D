@@ -1,8 +1,10 @@
 "use client";
+
 import { skills } from "@constants";
 import Image from "next/image";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import WorkTimeTine from "@components/WorkTimeTine";
+import CTA from "@components/CTA";
 
 const Page = () => {
 	return (
@@ -69,6 +71,9 @@ const Page = () => {
 				<h2 className="subhead-text mb-10">My Experience</h2>
 				<WorkTimeTine />
 			</div>
+
+			{/* cta */}
+			<CTA />
 		</section>
 	);
 };
