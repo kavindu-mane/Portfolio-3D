@@ -116,6 +116,20 @@ export const skills = [
 	},
 ];
 
+export const experiences = [
+	{
+		title: "Front-end Developer",
+		company_name: "CSIDevTeam - Uva Wellassa University",
+		iconBg: "#accbe1",
+		date: "Octomber 2023 - Current",
+		points: [
+			"Developing and maintaining web applications using React.js and other related technologies.",
+			"Implementing responsive design and ensuring cross-browser compatibility.",
+			"Participating in code reviews and providing constructive feedback to other developers.",
+		],
+	},
+];
+
 export const socialLinks = [
 	{
 		name: "Contact",
