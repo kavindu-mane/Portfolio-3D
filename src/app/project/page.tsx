@@ -4,7 +4,7 @@ import { projects } from "@constants";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const Page = () => {
+const Projects = () => {
 	return (
 		<section className="max-container">
 			<h1 className="head-text">
@@ -70,4 +70,4 @@ const Page = () => {
 	);
 };
 
-export default Page;
+export default Projects;

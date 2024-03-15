@@ -50,7 +50,7 @@ export const skills = [
 		type: "Frontend",
 	},
 	{
-		imageUrl: "tailwindcss/tailwindcss-plain.svg",
+		imageUrl: "tailwindcss/tailwindcss-original.svg",
 		name: "Tailwind CSS",
 		type: "Frontend",
 	},

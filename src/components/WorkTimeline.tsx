@@ -1,10 +1,9 @@
 import { Briefcase } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { experiences } from "@constants";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 
-const WorkTimeTine = () => {
+const WorkTimeline = () => {
 	return (
 		<VerticalTimeline lineColor="#6ee7b7">
 			{experiences.map((experience, key) => (
@@ -34,4 +33,4 @@ const WorkTimeTine = () => {
 	);
 };
 
-export default WorkTimeTine;
+export default WorkTimeline;

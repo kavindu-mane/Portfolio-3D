@@ -3,7 +3,7 @@
 import { skills } from "@constants";
 import Image from "next/image";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import WorkTimeTine from "@components/WorkTimeTine";
+import WorkTimeline from "@components/WorkTimeline";
 import CTA from "@components/CTA";
 
 const Page = () => {
@@ -69,7 +69,7 @@ const Page = () => {
 			{/* experience */}
 			<div className="py-10 flex flex-col">
 				<h2 className="subhead-text mb-10">My Experience</h2>
-				<WorkTimeTine />
+				<WorkTimeline />
 			</div>
 
 			{/* cta */}

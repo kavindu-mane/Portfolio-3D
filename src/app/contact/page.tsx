@@ -123,7 +123,7 @@ const Contact = () => {
 								name="name"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Name</FormLabel>
+										<FormLabel className="text-white">Name</FormLabel>
 										<FormControl>
 											<Input
 												className="input focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -143,7 +143,7 @@ const Contact = () => {
 								name="email"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Email</FormLabel>
+										<FormLabel className="text-white">Email</FormLabel>
 										<FormControl>
 											<Input
 												className="input focus-visible:ring-0 focus-visible:ring-offset-0"
@@ -163,7 +163,7 @@ const Contact = () => {
 								name="message"
 								render={({ field }) => (
 									<FormItem>
-										<FormLabel>Message</FormLabel>
+										<FormLabel className="text-white">Message</FormLabel>
 										<FormControl>
 											<Textarea
 												rows={6}
