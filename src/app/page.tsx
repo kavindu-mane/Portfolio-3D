@@ -7,6 +7,8 @@ import Loader from "@components/Loader";
 import Mermaid from "@models/Mermaid";
 import AnimationChanger from "@components/AnimationChanger";
 import Links from "@components/Links";
+import Loading from "./loading";
+import Dolphin from "@models/Dolphin";
 
 // mermaid animations
 type ActionName =
@@ -23,13 +25,12 @@ type ActionName =
   | "vertigo";
 
 const Home = () => {
-  const [screenScale, setScreenScale] = useState<Vector3>([2, 2, 2]);
+  const [screenScale, setScreenScale] = useState<Vector3>([1.8, 1.8, 1.8]);
   const [currentAnimation, setCurrentAnimation] =
     useState<ActionName>("fight_idle");
-  const [planeScale, setPlaneScale] = useState<Vector3>([1, 1, 1]);
-  const [planePosition, setPlanePosition] = useState<Vector3>([1, 1, 1]);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentStage, setCurrentStage] = useState<number | null>(1);
-  const [screenPosition, setScreenPosition] = useState<Vector3>([0, -2.5, 0]);
+  const [screenPosition, setScreenPosition] = useState<Vector3>([0, -2.8, 0]);
   const rotation: Euler = [0, 0, 0];
   const [isRotating, setIsRotating] = useState<boolean>(false);
 
@@ -37,13 +38,9 @@ const Home = () => {
   const adjustIslandForScreenSize = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 768) {
-        setScreenScale([1.6, 1.6, 1.6]);
-        setPlaneScale([1.5, 1.5, 1.5]);
-        setPlanePosition([0, -1.5, 0]);
+        setScreenScale([1.4, 1.4, 1.4]);
       } else {
-        setScreenScale([2, 2, 2]);
-        setPlaneScale([3, 3, 3]);
-        setPlanePosition([0, -4, 4]);
+        setScreenScale([1.8, 1.8, 1.8]);
       }
     }
   };
@@ -68,10 +65,21 @@ const Home = () => {
   useEffect(() => {
     if (currentAnimation === "skill3") {
       setScreenPosition([0, -4, 0]);
+    } else if (window.innerWidth > 768) {
+      setScreenPosition([0, -2.8, 0]);
     } else {
-      setScreenPosition([0, -2.5, 0]);
+      setScreenPosition([0, -2.2, 0]);
     }
   }, [currentAnimation]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsLoading(false);
+    }
+  }, []);
+
+  // return loading animation if page loading
+  if (isLoading) return <Loading />;
 
   return (
     <section className="relative h-screen w-full">
@@ -93,6 +101,9 @@ const Home = () => {
             groundColor={"#000000"}
             intensity={1.3}
           />
+
+          <Dolphin position={[-8, 6, -10]} />
+
           <Mermaid
             position={screenPosition}
             scale={screenScale}
@@ -103,12 +114,6 @@ const Home = () => {
             currentStage={currentStage}
             setCurrentStage={setCurrentStage}
           />
-          {/* <Plane
-						planeScale={planeScale}
-						planePosition={planePosition}
-						isRotating={isRotating}
-						rotation={[0, 20, 0]}
-					/> */}
         </Suspense>
       </Canvas>
 

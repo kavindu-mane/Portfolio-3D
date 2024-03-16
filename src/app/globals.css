@@ -96,40 +96,20 @@ body:has(.card[data-color="green"]:hover) {
     @apply relative text-xl font-semibold text-white sm:text-3xl;
   }
 
-  .blue-gradient_text {
-    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+  .yellow-gradient_text {
+    @apply bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent;
   }
 
   .input {
-    @apply mt-2.5 block w-full placeholder:!text-white/80 rounded-lg border-[1.5px] border-amber-300 bg-white/10 p-2.5 text-sm font-normal text-white  shadow-card backdrop-blur-sm focus:border-amber-500 focus:ring-amber-500;
-  }
-
-  .textarea {
-    @apply mt-2.5 block w-full rounded-lg border p-2.5 text-sm font-normal shadow-card focus:border-blue-500 focus:ring-blue-500;
+    @apply mt-2.5 block w-full rounded-lg border-[1.5px] border-amber-300 bg-white/10 p-2.5 text-sm font-normal text-white shadow-card  backdrop-blur-sm placeholder:!text-white/80 focus:border-amber-500 focus:ring-amber-500;
   }
 
   .btn {
-    @apply w-full rounded-lg bg-gradient-to-r from-amber-400 via-fuchsia-500 to-amber-400 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-amber-300 sm:w-auto;
+    @apply w-full rounded-lg bg-sky-600 px-5 py-2.5 text-center text-sm font-medium text-white shadow-lg drop-shadow-2xl backdrop-blur-sm duration-300 hover:bg-gradient-to-r hover:from-rose-600 hover:to-amber-500 focus:outline-none focus:ring-1 focus:ring-amber-300 sm:w-auto;
   }
 
   .header {
     @apply absolute left-0 right-0 top-0 z-10 mx-auto flex max-w-5xl items-center justify-between bg-transparent px-8 py-4 sm:px-16;
-  }
-
-  .footer {
-    @apply mx-auto flex max-w-5xl flex-col gap-7 px-8 pb-6 sm:px-16;
-  }
-
-  .footer-container {
-    @apply flex flex-wrap items-center justify-between gap-7;
-  }
-
-  .info-box {
-    @apply neo-brutalism-blue relative mx-5 flex max-w-2xl flex-col gap-3 px-8 pb-12 pt-4 text-white;
-  }
-
-  .neo-btn {
-    @apply absolute -bottom-5 left-0 right-0 mx-auto flex w-[90%] items-center justify-center gap-3 rounded-lg px-6 py-3 text-center font-semibold text-blue-500 sm:w-1/2;
   }
 
   .cta {
@@ -137,24 +117,17 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta-text {
-    @apply flex-1 text-3xl font-extrabold text-slate-800 max-md:text-center;
+    @apply flex-1 text-3xl font-medium text-emerald-100 max-md:text-center;
   }
 }
 
-.glassmorphism {
-  background: rgba(8, 116, 239, 0.07);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.logo {
-  border-radius: 8.889px;
-  background: #fff;
-  box-shadow:
-    0px 10px 35px -4px rgba(67, 83, 255, 0.15),
-    0px 1.5px 4px -1px rgba(67, 83, 255, 0.2);
+.loading {
+  overflow: visible;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  animation-iteration-count: infinite;
 }
 
 .block-container {
@@ -174,7 +147,7 @@ body:has(.card[data-color="green"]:hover) {
   transform-origin: bottom right;
   transform: rotateZ(15deg);
   will-change: transform;
-  box-shadow: 16px 0 40px #b4b4b4;
+  box-shadow: 16px 0 40px #00000055;
 }
 
 .block-container .btn-back-red {
@@ -212,6 +185,7 @@ body:has(.card[data-color="green"]:hover) {
   width: inherit;
   height: inherit;
   background-color: #ffffff33;
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   transition: 250ms;

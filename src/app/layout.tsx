@@ -3,8 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@components/Navbar";
 import MusicPreference from "@components/MusicPreference";
-import { Suspense } from "react";
-import Loader from "@components/Loader";
+import BackToTop from "@components/BackToTop";
+import Loading from "./loading";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -23,9 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-slate-950`}>
+      <body className={`${poppins.className} overflow-x-hidden bg-slate-950`}>
         <Navbar />
-        <Suspense fallback={<Loader />}>{children}</Suspense>
+        {children}
         <div
           style={{
             backgroundImage: "url(/assets/images/background.jpg)",
@@ -45,6 +45,9 @@ export default function RootLayout({
 
         {/* music preference notification */}
         <MusicPreference />
+
+        {/* back top button */}
+        <BackToTop />
       </body>
     </html>
   );
