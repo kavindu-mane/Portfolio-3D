@@ -11,12 +11,12 @@ import {
 import WorkTimeline from "@components/WorkTimeline";
 import CTA from "@components/CTA";
 import { useEffect, useState } from "react";
-import Loading from "@app/loading";
-import { Variants, motion } from "framer-motion";
-import { cardVariants, headerVariants } from "@app/animations/variants";
+import Loading from "../loading";
+import { motion } from "framer-motion";
+import { cardVariants, headerVariants } from "@animations/variants";
 import FishBackground from "@components/FishBackground";
 
-const Page = () => {
+const About = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -124,4 +124,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default About;

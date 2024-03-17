@@ -22,7 +22,7 @@ import { CheckCircle, XCircle } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import Fox from "@models/Fox";
 import Loader from "@components/Loader";
-import Loading from "@app/loading";
+import Loading from "../loading";
 import FishBackground from "@components/FishBackground";
 
 const formSchema = z.object({

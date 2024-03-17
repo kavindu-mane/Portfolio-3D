@@ -1,6 +1,6 @@
 "use client";
 
-import { headerVariants } from "@app/animations/variants";
+import { headerVariants } from "@animations/variants";
 import { Variants, motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";

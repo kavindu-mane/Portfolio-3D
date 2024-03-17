@@ -26,7 +26,7 @@ const MusicPlayer = ({ isMusicPlaying, setIsMusicPlaying }: propTypes) => {
 	return (
 		<div
 			className={
-				"fixed bottom-5  cursor-pointer bg-white/10 flex items-center justify-center rounded-full h-8 w-8 right-5 z-50 border border-amber-300 p-2 backdrop-blur-md shadow-lg drop-shadow-2xl shadow-black/5"
+				"fixed bottom-5 cursor-pointer bg-white/10 flex items-center justify-center rounded-full h-8 w-8 right-5 z-50 border border-amber-300 p-2 backdrop-blur-md shadow-lg drop-shadow-2xl shadow-black/5"
 			}
 			onClick={() => {
 				setIsMusicPlaying(!isMusicPlaying);

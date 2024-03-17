@@ -54,7 +54,7 @@ const Links = () => {
           </motion.div>
         </Link>
         <Link
-          href={"/project"}
+          href={"/projects"}
           className="pointer-events-auto absolute bottom-0 left-1/2 flex h-10 w-10 -translate-x-1/2 translate-y-1/2 transform items-center justify-center rounded-full border border-amber-400 bg-white/20 text-white shadow-lg shadow-black/5 drop-shadow-2xl backdrop-blur-sm"
         >
           <motion.div animate={buttonControls}>
@@ -62,7 +62,7 @@ const Links = () => {
           </motion.div>
         </Link>
         <Link
-          href={"/contact"}
+          href={"/contacts"}
           className="pointer-events-auto absolute left-0 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-full border border-amber-400 bg-white/20 text-white shadow-lg shadow-black/5 drop-shadow-2xl backdrop-blur-sm"
         >
           <motion.div animate={buttonControls}>

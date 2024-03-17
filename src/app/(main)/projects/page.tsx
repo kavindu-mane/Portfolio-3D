@@ -1,7 +1,7 @@
 "use client";
 
-import { cardVariants, headerVariants } from "@app/animations/variants";
-import Loading from "@app/loading";
+import { cardVariants, headerVariants } from "@animations/variants";
+import Loading from "../loading";
 import CTA from "@components/CTA";
 import FishBackground from "@components/FishBackground";
 import { Badge } from "@components/ui/badge";

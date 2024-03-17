@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@components/Navbar";
 import MusicPreference from "@components/MusicPreference";
 import BackToTop from "@components/BackToTop";
-import Loading from "./loading";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -24,30 +23,33 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className} overflow-x-hidden bg-slate-950`}>
-        <Navbar />
-        {children}
-        <div
-          style={{
-            backgroundImage: "url(/assets/images/background.jpg)",
-            backgroundSize: "cover",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundAttachment: "fixed",
-            opacity: "0.5",
-            position: "fixed",
-            top: "0",
-            bottom: "0",
-            width: "100%",
-            height: "100%",
-            zIndex: "-10",
-          }}
-        />
+        <main>
+          <Navbar />
+          <div
+            style={{
+              backgroundImage: "url(/assets/images/background.jpg)",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+              opacity: "0.5",
+              position: "fixed",
+              top: "0",
+              bottom: "0",
+              width: "100%",
+              height: "100%",
+              zIndex: "-10",
+            }}
+          />
 
-        {/* music preference notification */}
-        <MusicPreference />
+          {/* music preference notification */}
+          <MusicPreference />
 
-        {/* back top button */}
-        <BackToTop />
+          {/* back top button */}
+          <BackToTop />
+
+          {children}
+        </main>
       </body>
     </html>
   );
