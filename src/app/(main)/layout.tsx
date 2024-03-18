@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import "./main.css";
 import Navbar from "@components/Navbar";
 import MusicPreference from "@components/MusicPreference";
 import BackToTop from "@components/BackToTop";
@@ -12,6 +13,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Kavindu Manahara",
+  icons: "/icons/favicon.ico",
   description: "Undergraduate | Frontend Developer",
 };
 

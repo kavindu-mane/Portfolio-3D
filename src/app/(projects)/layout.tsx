@@ -2,7 +2,7 @@ import Loading from "./loading";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Suspense } from "react";
-import "./globals.css";
+import "../globals.css";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -11,6 +11,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "React Percentage Bar",
+  icons: "/icons/rpb/favicon.ico",
   description:
     "A simple React component to display a percentage bars and circles.",
 };

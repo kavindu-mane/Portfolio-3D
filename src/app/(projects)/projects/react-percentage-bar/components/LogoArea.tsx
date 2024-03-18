@@ -1,7 +1,6 @@
 import React from "react";
 import { CircularProgressBar } from "react-percentage-bar";
 import { LinearProgressBar } from "react-percentage-bar";
-import "react-percentage-bar/dist/index.css";
 
 const LogoArea = () => {
   return (

@@ -23,7 +23,7 @@ const MusicPreference = () => {
 		<div className="">
 			<div
 				className={`max-w-md ${
-					isSavePreference ? "absolute" : "hidden"
+					isSavePreference ? "fixed" : "hidden"
 				} top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 text-emerald-100 w-full flex flex-col items-end border border-amber-300 rounded-md p-3 bg-black/20 backdrop-blur-md shadow-lg drop-shadow-2xl shadow-black/5`}>
 				<p className="text-start w-full">Start playing music ? </p>
 				<div className="gap-x-2 flex mt-5 justify-between w-full">
