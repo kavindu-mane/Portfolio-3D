@@ -31,6 +31,8 @@ const Linear = () => {
               text={reactElementToJSXString(code.element, {
                 displayName: () => "LinearProgressBar",
                 maxInlineAttributesLineLength: 1,
+                useBooleanShorthandSyntax: false,
+                sortProps: true,
               })}
               title={code.title}
             >

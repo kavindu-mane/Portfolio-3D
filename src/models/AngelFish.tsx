@@ -44,7 +44,7 @@ const AngelFish = (props: JSX.IntrinsicElements["group"]) => {
     if (actions["Take 001"]) {
       actions["Take 001"].play();
     }
-  }, []);
+  }, [actions]);
 
   useFrame(() => {
     if (group.current) {

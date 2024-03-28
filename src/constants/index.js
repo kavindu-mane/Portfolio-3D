@@ -159,6 +159,10 @@ export const projects = [
       "Create Amazing GitHub Profile README Without Coding.Show your skills, experience , projects and many more. Generate markdown for your profile with just few clicks!",
     link: "https://github.com/kavindu-mane/CreateME",
     techStack: ["React", "Bootstrap"],
+    otherLinks: {
+      text : "Live",
+      link : "https://createme.kavindu.me"
+    }
   },
   {
     theme: "btn-back-green",
@@ -167,6 +171,10 @@ export const projects = [
       "React Percentage Bar is more Customizable Circular and Linear percentage progress bar package for react apps.",
     link: "https://github.com/kavindu-mane/react-percentage-bar/",
     techStack: ["React", "npm", "css"],
+    otherLinks: {
+      text : "NPM",
+      link : "https://www.npmjs.com/package/react-percentage-bar"
+    }
   },
   {
     theme: "btn-back-blue",
@@ -175,6 +183,7 @@ export const projects = [
       "Uva Wellassa University IEEE Open day 2023 official website. This website help to get an idea about IEEE and register event for undergraduates.",
     link: "https://github.com/SasanDilantha/IEEE_Openday_2023",
     techStack: ["React", "Tailwind CSS", "Google Sheet API"],
+    otherLinks : null
   },
   {
     theme: "btn-back-pink",
@@ -183,6 +192,7 @@ export const projects = [
       "GitHub Visitors Counter is a counter that calculate GitHub profile viewers and show that value as a badge.",
     link: "https://github.com/kavindu-mane/Visitors-Counter",
     techStack: ["MongoDB", "Express.js"],
+    otherLinks : null
   },
   {
     theme: "btn-back-black",
@@ -191,6 +201,7 @@ export const projects = [
       "WhatsSender is an android app for open WhatsApp chat non-contacts phone numbers. Also this app support WhatsApp , WhatsApp Business and other modified versions.",
     link: "https://github.com/kavindu-mane/WhatsSender",
     techStack: ["Android", "Java"],
+    otherLinks : null
   },
   {
     theme: "btn-back-yellow",
@@ -199,6 +210,7 @@ export const projects = [
       "Eliger is a vehicle renting system. This project done with 5 other collaborators.It's help to find and rent vehicle with or without driver.This project contains web app and simple mobile app. ",
     link: "https://github.com/kavindu-mane/Eliger",
     techStack: ["React", "Tailwind CSS", "PHP", "Google Map API", "Flutter"],
+    otherLinks : null
   },
   {
     theme: "btn-back-red",
@@ -207,6 +219,10 @@ export const projects = [
       "Landing page for wild area hotel called 'Hotel Yaala'.This landing page use simple and more attractive parallax effect and dark & light themes.",
     link: "https://github.com/kavindu-mane/Hotel-Yaala",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    otherLinks : {
+      text : "Demo",
+      link : "https://hotel-yaala.onrender.com"
+    }
   },
   {
     theme: "btn-back-green",
@@ -222,6 +238,7 @@ export const projects = [
       "JWT Authentication",
       "MySQL",
     ],
+    otherLinks : null
   },
 ];
 

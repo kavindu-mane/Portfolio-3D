@@ -116,7 +116,7 @@ export const codes: codeTypes = [
     element: (
       <CircularProgressBar showPercentage={false}>
         <img
-          src="https://kavindu.me/logo192.png"
+          src="/logo192.png"
           alt="portfolio logo"
           style={{
             width: "3rem",

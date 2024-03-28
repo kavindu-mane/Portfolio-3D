@@ -38,7 +38,7 @@ const MusicPreference = () => {
 						<label
 							htmlFor="save"
 							className="text-amber-400 text-sm cursor-pointer">
-							don't ask again
+							don&apos;t ask again
 						</label>
 					</div>
 					<div className="flex gap-x-3">

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-// import LogoArea from "./components/LogoArea";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import SyntaxHighlighter from "react-syntax-highlighter";

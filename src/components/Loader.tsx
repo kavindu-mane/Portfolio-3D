@@ -19,7 +19,7 @@ const Loader = () => {
       <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"
-        className="loading h-28 w-28"
+        className="loading h-28 w-28 -translate-x-14"
       >
         <motion.path
           d="M0 100V0l50 50 50-50v100L75 50l-25 25 -25-25z"

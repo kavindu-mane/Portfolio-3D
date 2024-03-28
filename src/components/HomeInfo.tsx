@@ -20,7 +20,7 @@ type objectType = {
 const content: objectType = {
 	1: (
 		<h1 className="sm:text-lg backdrop-blur-sm shadow-lg drop-shadow-2xl shadow-black/5 border border-amber-300 rounded-md p-3 bg-white/10 leading-snug text-center text-white py-4 px-8 mx-5">
-			Hi, I'm <span className="font-semibold">Kavindu Manahara.</span> 👋
+			Hi, I&apos;m <span className="font-semibold">Kavindu Manahara.</span> 👋
 			<br /> A front-end developer.
 		</h1>
 	),

@@ -94,22 +94,43 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  <motion.div
-                    whileHover={{
-                      translateX: 10,
-                      transition: { duration: 0.3 },
-                    }}
-                    className="mt-5 flex w-fit cursor-pointer gap-x-1 font-semibold text-emerald-300"
-                  >
-                    <Link
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                  <div className="flex items-center justify-between">
+                    <motion.div
+                      whileHover={{
+                        translateX: 10,
+                        transition: { duration: 0.3 },
+                      }}
+                      className="mt-5 flex w-fit cursor-pointer gap-x-1 font-semibold text-emerald-300"
                     >
-                      Repo Link
-                    </Link>
-                    <ArrowRight />
-                  </motion.div>
+                      <Link
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Repo Link
+                      </Link>
+                      <ArrowRight />
+                    </motion.div>
+
+                    {project.otherLinks && (
+                      <motion.div
+                        whileHover={{
+                          translateX: 10,
+                          transition: { duration: 0.3 },
+                        }}
+                        className="mt-5 flex w-fit cursor-pointer gap-x-1 font-semibold text-emerald-300"
+                      >
+                        <Link
+                          href={project.otherLinks.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project.otherLinks.text}
+                        </Link>
+                        <ArrowRight />
+                      </motion.div>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             </motion.div>

@@ -13,7 +13,7 @@ const MusicPlayer = ({ isMusicPlaying, setIsMusicPlaying }: propTypes) => {
 
 	useEffect(() => {
 		if (typeof window !== "undefined") {
-			setAudio(new Audio("/assets/audio/sakura.mp3"));
+			setAudio(new Audio("/assets/audio/sea.mp3"));
 		}
 	}, []);
 
@@ -21,7 +21,7 @@ const MusicPlayer = ({ isMusicPlaying, setIsMusicPlaying }: propTypes) => {
 		if (audio === null) return;
 		audio.loop = true;
 		isMusicPlaying ? audio.play() : audio.pause();
-	}, [isMusicPlaying]);
+	}, [isMusicPlaying , audio]);
 
 	return (
 		<div

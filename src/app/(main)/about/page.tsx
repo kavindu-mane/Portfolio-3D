@@ -39,7 +39,7 @@ const About = () => {
         >
           <motion.div variants={headerVariants}>
             <h1 className="head-text">
-              Hello I'm {""}
+              Hello I&apos;m {""}
               <span className="yellow-gradient_text font-semibold drop-shadow-md">
                 Kavindu
               </span>
@@ -53,7 +53,7 @@ const About = () => {
                   Front-end developer
                 </span>
                 from Sri Lanka.I have front-end skills in JavaScript , React ,
-                Bootstrap and Tailwind CSS. As well as I'm currently learning
+                Bootstrap and Tailwind CSS. As well as I&apos;m currently learning
                 PHP and Express Js as back-end technologies.These days I am
                 reading for a degree in Bachelor of Computer Science and
                 Technology degree program at Uva Wellassa University in Sri

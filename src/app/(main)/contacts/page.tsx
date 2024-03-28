@@ -20,10 +20,10 @@ import { useToast } from "@/components/ui/use-toast";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { CheckCircle, XCircle } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
-import Fox from "@models/Fox";
 import Loader from "@components/Loader";
 import Loading from "../loading";
 import FishBackground from "@components/FishBackground";
+import Octopus from "@models/Octopus";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -40,9 +40,11 @@ const formSchema = z.object({
   }),
 });
 
+type ActionName = "Idle" | "Walk" | "Dart" | "Walk.001";
+
 const Contact = () => {
   const [loading, setLoading] = useState(false);
-  const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const [currentAnimation, setCurrentAnimation] = useState<ActionName>("Idle");
   const [isLoading, setIsLoading] = useState(true);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
@@ -59,7 +61,7 @@ const Contact = () => {
   // submit function
   function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true);
-    setCurrentAnimation("hit");
+    setCurrentAnimation("Dart");
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID!,
@@ -73,7 +75,7 @@ const Contact = () => {
       )
       .then(() => {
         toast({
-          className: "bg-green-500 text-white",
+          className: "bg-white/10 text-white backdrop-blur-sm",
           description: (
             <p className="flex items-center space-x-3 text-sm font-medium">
               <CheckCircle className="me-2 h-4 w-4" />
@@ -97,16 +99,16 @@ const Contact = () => {
       .finally(() => {
         setLoading(false);
         setTimeout(() => {
-          setCurrentAnimation("idle");
+          setCurrentAnimation("Idle");
         }, 3000);
       });
   }
 
   const handleFocus = () => {
-    setCurrentAnimation("walk");
+    setCurrentAnimation("Walk");
   };
   const handleBlur = () => {
-    setCurrentAnimation("idle");
+    setCurrentAnimation("Idle");
   };
 
   useEffect(() => {
@@ -123,6 +125,7 @@ const Contact = () => {
       {/* fish models background */}
       <FishBackground />
       <section className="max-container relative flex flex-col lg:flex-row">
+        {/* toaster element for show toast */}
         <Toaster />
         <div className="flex w-full flex-col lg:flex-row">
           <div className="w-full">
@@ -220,11 +223,11 @@ const Contact = () => {
               <directionalLight intensity={2.5} position={[0, 0, 1]} />
               <ambientLight intensity={0.4} />
               <Suspense fallback={<Loader />}>
-                <Fox
+                <Octopus
                   currentAnimation={currentAnimation}
-                  position={[0.5, 0.35, 0]}
-                  rotation={[-12.6, -0.7, 0]}
-                  scale={[0.5, 0.5, 0.5]}
+                  position={[0, -2, 0]}
+                  rotation={[0, 1, 0]}
+                  scale={[3, 3, 3]}
                 />
               </Suspense>
             </Canvas>

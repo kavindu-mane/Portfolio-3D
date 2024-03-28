@@ -52,7 +52,7 @@ const GuppyFish = (props: JSX.IntrinsicElements["group"]) => {
     if (actions["ArmatureAction.001"]) {
       actions["ArmatureAction.001"].play();
     }
-  }, []);
+  }, [actions]);
 
   useFrame(() => {
     if (group.current) {

@@ -9,207 +9,228 @@ Title: Hero_Odette_Mermaid Princess
 */
 
 import * as THREE from "three";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 import { Euler, Vector3, useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
 
 type GLTFResult = GLTF & {
-	nodes: {
-		Object_9: THREE.SkinnedMesh;
-		_rootJoint: THREE.Bone;
-	};
-	materials: {
-		txt_odette03: THREE.MeshStandardMaterial;
-	};
+  nodes: {
+    Object_9: THREE.SkinnedMesh;
+    _rootJoint: THREE.Bone;
+  };
+  materials: {
+    txt_odette03: THREE.MeshStandardMaterial;
+  };
 };
 
 type propType = {
-	isRotating: boolean;
-	setIsRotating: React.Dispatch<React.SetStateAction<boolean>>;
-	rotation: Euler;
-	position: Vector3;
-	scale: Vector3;
-	currentStage: number | null;
-	setCurrentStage: React.Dispatch<React.SetStateAction<number | null>>;
-	currentAnimation: string;
+  isRotating: boolean;
+  setIsRotating: React.Dispatch<React.SetStateAction<boolean>>;
+  rotation: Euler;
+  position: Vector3;
+  scale: Vector3;
+  currentStage: number | null;
+  setCurrentStage: React.Dispatch<React.SetStateAction<number | null>>;
+  currentAnimation: string;
 };
 
 const Mermaid = ({
-	isRotating,
-	setIsRotating,
-	setCurrentStage,
-	currentAnimation,
-	...props
+  isRotating,
+  setIsRotating,
+  setCurrentStage,
+  currentAnimation,
+  ...props
 }: propType) => {
-	const mermaidRef = useRef<THREE.Group>(null);
-	const { gl, viewport } = useThree();
-	const { nodes, materials, animations } = useGLTF("/assets/3d/mermaid_princess.glb") as GLTFResult;
-	const { actions } = useAnimations(animations, mermaidRef);
-	const lastX = useRef(0);
-	const rotationSpeed = useRef(0);
-	const dumpingFactor = 0.95;
+  const mermaidRef = useRef<THREE.Group>(null);
+  const { gl, viewport } = useThree();
+  const { nodes, materials, animations } = useGLTF(
+    "/assets/3d/mermaid_princess.glb",
+  ) as GLTFResult;
+  const { actions } = useAnimations(animations, mermaidRef);
+  const lastX = useRef(0);
+  const rotationSpeed = useRef(0);
+  const dumpingFactor = 0.95;
 
-	const handlePointerDown = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
-		setIsRotating(true);
-		const clientX = e?.touches ? e?.touches[0].clientX : e?.clientX;
-		lastX.current = clientX;
-	};
+  const handlePointerDown = useCallback(
+    (e: any) => {
+      e.stopPropagation();
+      e.preventDefault();
+      setIsRotating(true);
+      const clientX = e?.touches ? e?.touches[0].clientX : e?.clientX;
+      lastX.current = clientX;
+    },
+    [setIsRotating],
+  );
 
-	const handlePointerUp = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
-		setIsRotating(false);
-	};
+  const handlePointerUp = useCallback(
+    (e: any) => {
+      e.stopPropagation();
+      e.preventDefault();
+      setIsRotating(false);
+    },
+    [setIsRotating],
+  );
 
-	const handlePointerMove = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
-		const clientX = e?.touches ? e?.touches[0].clientX : e?.clientX;
-		if (isRotating) {
-			const deltaX = (clientX - lastX.current) / viewport.width;
-			if (mermaidRef.current) {
-				mermaidRef.current.rotation.y += deltaX * Math.PI * 0.005;
-			}
+  const handlePointerMove = useCallback(
+    (e: any) => {
+      e.stopPropagation();
+      e.preventDefault();
+      const clientX = e?.touches ? e?.touches[0].clientX : e?.clientX;
+      if (isRotating) {
+        const deltaX = (clientX - lastX.current) / viewport.width;
+        if (mermaidRef.current) {
+          mermaidRef.current.rotation.y += deltaX * Math.PI * 0.005;
+        }
 
-			lastX.current = clientX;
-			rotationSpeed.current = deltaX * 0.01 * Math.PI;
-		}
-	};
+        lastX.current = clientX;
+        rotationSpeed.current = deltaX * 0.01 * Math.PI;
+      }
+    },
+    [isRotating, viewport],
+  );
 
-	const handleKeyDown = (e: any) => {
-		if (e.key === "ArrowRight") {
-			if (!isRotating) setIsRotating(true);
-			if (mermaidRef.current) {
-				mermaidRef.current.rotation.y += 0.001 * Math.PI;
-				rotationSpeed.current = 0.0125;
-			}
-		} else if (e.key === "ArrowLeft") {
-			if (!isRotating) setIsRotating(true);
-			if (mermaidRef.current) {
-				mermaidRef.current.rotation.y -= 0.001 * Math.PI;
-				rotationSpeed.current = -0.0125;
-			}
-		}
-	};
+  const handleKeyDown = useCallback(
+    (e: any) => {
+      if (e.key === "ArrowRight") {
+        if (!isRotating) setIsRotating(true);
+        if (mermaidRef.current) {
+          mermaidRef.current.rotation.y += 0.001 * Math.PI;
+          rotationSpeed.current = 0.0125;
+        }
+      } else if (e.key === "ArrowLeft") {
+        if (!isRotating) setIsRotating(true);
+        if (mermaidRef.current) {
+          mermaidRef.current.rotation.y -= 0.001 * Math.PI;
+          rotationSpeed.current = -0.0125;
+        }
+      }
+    },
+    [isRotating, setIsRotating],
+  );
 
-	const handleKeyUp = (e: any) => {
-		if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-			setIsRotating(false);
-		}
-	};
+  const handleKeyUp = useCallback(
+    (e: any) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        setIsRotating(false);
+      }
+    },
+    [setIsRotating],
+  );
 
-	useFrame(() => {
-		if (!isRotating) {
-			rotationSpeed.current *= dumpingFactor;
-			if (Math.abs(rotationSpeed.current) < 0.01) {
-				rotationSpeed.current = 0;
-			}
-			mermaidRef.current!.rotation.y += rotationSpeed.current;
-		} else {
-			const rotation: number = mermaidRef.current?.rotation.y ?? 0;
+  useFrame(() => {
+    if (!isRotating) {
+      rotationSpeed.current *= dumpingFactor;
+      if (Math.abs(rotationSpeed.current) < 0.01) {
+        rotationSpeed.current = 0;
+      }
+      mermaidRef.current!.rotation.y += rotationSpeed.current;
+    } else {
+      const rotation: number = mermaidRef.current?.rotation.y ?? 0;
 
-			const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      const normalizedRotation =
+        ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
-			// Set the current stage based on the mermaid's orientation
-			switch (true) {
-				case normalizedRotation >= 4.75 && normalizedRotation <= 5.75:
-					setCurrentStage(4);
-					break;
-				case normalizedRotation >= 3.1 && normalizedRotation <= 4.1:
-					setCurrentStage(3);
-					break;
-				case normalizedRotation >= 1.55 && normalizedRotation <= 2.55:
-					setCurrentStage(2);
-					break;
-				case normalizedRotation >= 0 && normalizedRotation <= 1:
-					setCurrentStage(1);
-					break;
-				default:
-					setCurrentStage(null);
-			}
-		}
-	});
+      // Set the current stage based on the mermaid's orientation
+      switch (true) {
+        case normalizedRotation >= 4.75 && normalizedRotation <= 5.75:
+          setCurrentStage(4);
+          break;
+        case normalizedRotation >= 3.1 && normalizedRotation <= 4.1:
+          setCurrentStage(3);
+          break;
+        case normalizedRotation >= 1.55 && normalizedRotation <= 2.55:
+          setCurrentStage(2);
+          break;
+        case normalizedRotation >= 0 && normalizedRotation <= 1:
+          setCurrentStage(1);
+          break;
+        default:
+          setCurrentStage(null);
+      }
+    }
+  });
 
-	// rotating changes
-	useEffect(() => {
-		const canvas = gl.domElement;
-		canvas.addEventListener("pointerdown", handlePointerDown);
-		canvas.addEventListener("pointerup", handlePointerUp);
-		canvas.addEventListener("pointermove", handlePointerMove);
-		document.addEventListener("keydown", handleKeyDown);
-		document.addEventListener("keyup", handleKeyUp);
-		return () => {
-			canvas.removeEventListener("pointerdown", handlePointerDown);
-			canvas.removeEventListener("pointerup", handlePointerUp);
-			canvas.removeEventListener("pointermove", handlePointerMove);
-			document.addEventListener("keydown", handleKeyDown);
-			document.addEventListener("keyup", handleKeyUp);
-		};
-	}, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+  // rotating changes
+  useEffect(() => {
+    const canvas = gl.domElement;
+    canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("pointerup", handlePointerUp);
+    canvas.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keyup", handleKeyUp);
+    return () => {
+      canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("pointerup", handlePointerUp);
+      canvas.removeEventListener("pointermove", handlePointerMove);
+      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener("keyup", handleKeyUp);
+    };
+  }, [
+    gl,
+    handlePointerDown,
+    handlePointerUp,
+    handlePointerMove,
+    handleKeyDown,
+    handleKeyUp,
+  ]);
 
-	// animation changes
-	useEffect(() => {
-		Object.values(actions).forEach((action) => {
-			action?.stop();
-		});
+  // animation changes
+  useEffect(() => {
+    Object.values(actions).forEach((action) => {
+      action?.stop();
+    });
 
-		if (actions[currentAnimation]) actions[currentAnimation]?.play();
-	}, [actions, currentAnimation]);
+    if (actions[currentAnimation]) actions[currentAnimation]?.play();
+  }, [actions, currentAnimation]);
 
-	return (
-		<a.group
-			ref={mermaidRef}
-			{...props}
-			dispose={null}>
-			<group name="Sketchfab_Scene">
-				<group
-					name="Sketchfab_Mermaid"
-					rotation={[-Math.PI / 2, 0, 0]}
-					scale={117.458}>
-					<group
-						name="hero_odette_skin03_addfbx"
-						rotation={[Math.PI / 2, 0, 0]}
-						scale={0.01}>
-						<group name="Object_2">
-							<group name="RootNode">
-								<group name="hero_odette_skin03_add">
-									<group name="hero_odette_skin03_add_1">
-										<group name="Object_6">
-											<primitive object={nodes._rootJoint} />
-											<skinnedMesh
-												name="Object_9"
-												geometry={nodes.Object_9.geometry}
-												material={materials.txt_odette03}
-												skeleton={nodes.Object_9.skeleton}
-											/>
-											<group name="Object_8" />
-											<group name="Nvfashirenyu_low" />
-											<group
-												name="Shadow"
-												position={[0, 0.014, 0]}
-												rotation={[Math.PI / 2, 0, 0]}
-												scale={1.818}
-											/>
-											<group name="MoveTaget" />
-											<group name="Skillpos" />
-											<group
-												name="headbox"
-												position={[0, 2.179, 0]}
-											/>
-										</group>
-									</group>
-								</group>
-							</group>
-						</group>
-					</group>
-				</group>
-			</group>
-		</a.group>
-	);
+  return (
+    <a.group ref={mermaidRef} {...props} dispose={null}>
+      <group name="Sketchfab_Scene">
+        <group
+          name="Sketchfab_Mermaid"
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={117.458}
+        >
+          <group
+            name="hero_odette_skin03_addfbx"
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.01}
+          >
+            <group name="Object_2">
+              <group name="RootNode">
+                <group name="hero_odette_skin03_add">
+                  <group name="hero_odette_skin03_add_1">
+                    <group name="Object_6">
+                      <primitive object={nodes._rootJoint} />
+                      <skinnedMesh
+                        name="Object_9"
+                        geometry={nodes.Object_9.geometry}
+                        material={materials.txt_odette03}
+                        skeleton={nodes.Object_9.skeleton}
+                      />
+                      <group name="Object_8" />
+                      <group name="Nvfashirenyu_low" />
+                      <group
+                        name="Shadow"
+                        position={[0, 0.014, 0]}
+                        rotation={[Math.PI / 2, 0, 0]}
+                        scale={1.818}
+                      />
+                      <group name="MoveTaget" />
+                      <group name="Skillpos" />
+                      <group name="headbox" position={[0, 2.179, 0]} />
+                    </group>
+                  </group>
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+      </group>
+    </a.group>
+  );
 };
 
 export default Mermaid;

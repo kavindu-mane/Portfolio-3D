@@ -1,0 +1,39 @@
+name: Deploy to FTP
+
+on:
+  push:
+    branches:
+      - master  # Adjust the branch name if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.18.2  # Use the desired Node.js version
+
+      - name: Install dependencies and build Next.js app
+        run: |
+          yarn install  # Install project dependencies
+          touch .env.local
+          echo NEXT_PUBLIC_EMAIL_JS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID }} >> .env.local
+          echo NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID=${{ secrets.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID }} >> .env.local
+          echo NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY=${{ secrets.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY }} >> .env.local
+          yarn build  # Build Next.js app
+
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./  # This points to the build output directory of your Next.js app
+          server-dir: /
+          protocol: ftps
+          timeout: 300000  # Set a longer timeout value in milliseconds (here, 2 minutes)

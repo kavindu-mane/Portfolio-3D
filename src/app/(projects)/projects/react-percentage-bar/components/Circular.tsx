@@ -19,7 +19,7 @@ const Circular = () => {
   useEffect(() => {
     setIsMounted(true);
     console.log("length", length);
-  }, []);
+  }, [length]);
 
   return (
     <React.Fragment>
@@ -31,7 +31,12 @@ const Circular = () => {
               <Card
                 key={index}
                 text={reactElementToJSXString(code.element, {
-                  displayName: () => "CircularProgressBar",
+                  displayName: (name) =>
+                    React.isValidElement(name) && name?.type === "img"
+                      ? "img"
+                      : "CircularProgressBar",
+                  useBooleanShorthandSyntax: false,
+                  sortProps: true,
                   maxInlineAttributesLineLength: 1,
                 })}
                 title={code.title}

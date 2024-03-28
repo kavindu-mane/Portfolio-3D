@@ -16,7 +16,7 @@ const CTA = () => {
         <section className="cta rounded-xl border border-amber-400/50 bg-white/5 p-4 backdrop-blur-sm">
           <p className="cta-text">
             Have a project in mind ? <br className="hidden sm:block" />
-            Let's build something together!
+            Let&apos;s build something together!
           </p>
           <Link href="/contact" className="btn">
             Contact
