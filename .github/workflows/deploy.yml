@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies and build Next.js app
         run: |
-          npm run install  # Install project dependencies
+          npm install  # Install project dependencies
           touch .env.local
           echo NEXT_PUBLIC_EMAIL_JS_SERVICE_ID=${{ secrets.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID }} >> .env.local
           echo NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID=${{ secrets.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID }} >> .env.local
