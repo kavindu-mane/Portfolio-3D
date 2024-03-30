@@ -8,7 +8,7 @@ import MultipleObserver from "./MultipleObserver";
 const Card = dynamic(() => import("./Card"), {
   ssr: true,
   loading: () => (
-    <Skeleton className="h-[250px] w-full max-w-sm rounded-xl bg-slate-300" />
+    <Skeleton className="mx-3 h-[250px] w-full max-w-sm rounded-xl bg-slate-300" />
   ),
 });
 

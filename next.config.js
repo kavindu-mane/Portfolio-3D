@@ -3,4 +3,4 @@ const nextConfig = {
   distDir: "_next",
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

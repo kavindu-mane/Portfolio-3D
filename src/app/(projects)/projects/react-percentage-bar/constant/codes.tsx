@@ -305,31 +305,31 @@ export const codes: codeTypes = [
 export const linearCodes: codeTypes = [
   {
     title: "Default",
-    element: <LinearProgressBar />,
+    element: <LinearProgressBar width={"15rem"} />,
   },
   {
     title: "Stroke Color",
-    element: <LinearProgressBar color={"#57C5B6"} />,
+    element: <LinearProgressBar width={"15rem"} color={"#57C5B6"} />,
   },
   {
     title: "Track Color",
-    element: <LinearProgressBar trackColor={"#00ff0088"} />,
+    element: <LinearProgressBar width={"15rem"} trackColor={"#00ff0088"} />,
   },
   {
     title: "Percentage",
-    element: <LinearProgressBar percentage={90} />,
+    element: <LinearProgressBar width={"15rem"} percentage={90} />,
   },
   {
     title: "Duration",
-    element: <LinearProgressBar duration={1000} />,
+    element: <LinearProgressBar width={"15rem"} duration={1000} />,
   },
   {
     title: "Text",
-    element: <LinearProgressBar text={"React"} />,
+    element: <LinearProgressBar width={"15rem"} text={"React"} />,
   },
   {
     title: "Show Percentage",
-    element: <LinearProgressBar showPercentage={false} />,
+    element: <LinearProgressBar width={"15rem"} showPercentage={false} />,
   },
   {
     title: "Custom Text Style",
@@ -346,35 +346,33 @@ export const linearCodes: codeTypes = [
   },
   {
     title: "Line Cap",
-    element: <LinearProgressBar roundLineCap={false} />,
+    element: <LinearProgressBar width={"15rem"} roundLineCap={false} />,
   },
   {
     title: "Animation",
-    element: <LinearProgressBar animation={false} />,
+    element: <LinearProgressBar width={"15rem"} animation={false} />,
   },
   {
     title: "Percentage Animation",
-    element: <LinearProgressBar percentageAnimation={false} />,
+    element: <LinearProgressBar width={"15rem"} percentageAnimation={false} />,
   },
   {
     title: "Percentage Color",
-    element: <LinearProgressBar percentageColor={"red"} />,
-  },
-  {
-    title: "Width",
-    element: <LinearProgressBar width={"17rem"} />,
+    element: <LinearProgressBar width={"15rem"} percentageColor={"red"} />,
   },
   {
     title: "Height",
-    element: <LinearProgressBar height={"0.5rem"} />,
+    element: <LinearProgressBar width={"15rem"} height={"0.5rem"} />,
   },
   {
     title: "Percentage Position",
-    element: <LinearProgressBar percentagePosition={"onright"} />,
+    element: (
+      <LinearProgressBar width={"15rem"} percentagePosition={"onright"} />
+    ),
   },
   {
     title: "Start Direction",
-    element: <LinearProgressBar startDirection={"right"} />,
+    element: <LinearProgressBar width={"15rem"} startDirection={"right"} />,
   },
   {
     title: "Sample - 1",

@@ -6,7 +6,6 @@ import { Suspense, useEffect, useState } from "react";
 import Loader from "@components/Loader";
 import Mermaid from "@models/Mermaid";
 import AnimationChanger from "@components/AnimationChanger";
-import Links from "@components/Links";
 import Loading from "./loading";
 import Dolphin from "@models/Dolphin";
 
@@ -122,9 +121,6 @@ const Home = () => {
         currentAnimation={currentAnimation}
         setCurrentAnimation={setCurrentAnimation}
       />
-
-      {/* links */}
-      {currentAnimation === "fight_idle" && <Links />}
     </section>
   );
 };

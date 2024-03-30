@@ -45,7 +45,7 @@ const AnimationChanger = ({ currentAnimation, setCurrentAnimation }: propType) =
 			<DropdownMenuTrigger asChild>
 				<Button
 					variant="outline"
-					className="fixed text-white hover:text-white hover:bg-white/10 focus-visible:ring-0 focus-visible:ring-offset-0 start-5 bottom-5 cursor-pointer bg-white/10 flex items-center justify-center rounded-full h-8 w-8 right-5 z-50 border border-amber-300 p-2 backdrop-blur-md shadow-lg drop-shadow-2xl shadow-black/5">
+					className="fixed text-white hover:text-white hover:bg-white/10 focus-visible:ring-0 focus-visible:ring-offset-0 start-1/2 -translate-x-1/2 bottom-5 cursor-pointer bg-white/10 flex items-center justify-center rounded-full h-8 w-8 right-5 z-50 border border-amber-300 p-2 backdrop-blur-md shadow-lg drop-shadow-2xl shadow-black/5">
 					<CgArrowsExchangeAltV className="w-4 h-4 scale-150" />
 				</Button>
 			</DropdownMenuTrigger>

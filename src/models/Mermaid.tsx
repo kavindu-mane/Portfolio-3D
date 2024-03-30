@@ -155,15 +155,21 @@ const Mermaid = ({
   // rotating changes
   useEffect(() => {
     const canvas = gl.domElement;
-    canvas.addEventListener("pointerdown", handlePointerDown);
-    canvas.addEventListener("pointerup", handlePointerUp);
-    canvas.addEventListener("pointermove", handlePointerMove);
+    canvas.addEventListener("mousedown", handlePointerDown);
+    canvas.addEventListener("touchstart", handlePointerDown);
+    canvas.addEventListener("mouseup", handlePointerUp);
+    canvas.addEventListener("touchend", handlePointerUp);
+    canvas.addEventListener("mousemove", handlePointerMove);
+    canvas.addEventListener("touchmove", handlePointerMove);
     document.addEventListener("keydown", handleKeyDown);
     document.addEventListener("keyup", handleKeyUp);
     return () => {
-      canvas.removeEventListener("pointerdown", handlePointerDown);
-      canvas.removeEventListener("pointerup", handlePointerUp);
-      canvas.removeEventListener("pointermove", handlePointerMove);
+      canvas.removeEventListener("mousedown", handlePointerDown);
+      canvas.removeEventListener("touchstart", handlePointerDown);
+      canvas.removeEventListener("mouseup", handlePointerUp);
+      canvas.removeEventListener("touchend", handlePointerUp);
+      canvas.removeEventListener("mousemove", handlePointerMove);
+      canvas.removeEventListener("touchmove", handlePointerMove);
       document.addEventListener("keydown", handleKeyDown);
       document.addEventListener("keyup", handleKeyUp);
     };

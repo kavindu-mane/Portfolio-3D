@@ -6,7 +6,7 @@ import "./main.css";
 import Navbar from "@components/Navbar";
 import MusicPreference from "@components/MusicPreference";
 import BackToTop from "@components/BackToTop";
-import Head from "next/head";
+import MenuButton from "@components/MenuButton";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -88,7 +88,7 @@ function addProductJsonLd() {
     __html: `
       {
         "@context": "https://www.kavindu.me/",
-        "@type": "Website",
+        "@type": "WebSite",
         "name": "Portfolio website of Kavindu Manahara",
         "author": {
           "@type": "Person",
@@ -110,17 +110,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        {/* LD + Json */}
+      <body
+        className={`${poppins.className} w-screen overflow-x-hidden bg-slate-950`}
+      >
+        {/* Google Analytics - Google tag (gtag.js) */}
+        <GoogleAnalytics gaId="G-WFY6XPEHSQ" />
+        {/* Ld + JSON */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={addProductJsonLd()}
           key="product-jsonld"
         />
-      </Head>
-      <body className={`${poppins.className} overflow-x-hidden bg-slate-950`}>
-        {/* Google Analytics - Google tag (gtag.js) */}
-        <GoogleAnalytics gaId="G-WFY6XPEHSQ" />
         <main>
           <Navbar />
           <div
@@ -130,7 +130,7 @@ export default function RootLayout({
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundAttachment: "fixed",
-              opacity: "0.5",
+              opacity: "0.55",
               position: "fixed",
               top: "0",
               bottom: "0",
@@ -143,10 +143,13 @@ export default function RootLayout({
           {/* music preference notification */}
           <MusicPreference />
 
+          {/* menu button */}
+          <MenuButton />
+
           {/* back top button */}
           <BackToTop />
 
-          {children}
+          <div className="w-screen overflow-x-hidden">{children}</div>
         </main>
       </body>
     </html>

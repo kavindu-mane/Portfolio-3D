@@ -74,7 +74,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Google Analytics - Google tag (gtag.js) */}
         <GoogleAnalytics gaId="G-WFY6XPEHSQ" />
         <main>
-          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Suspense fallback={<Loading />}>
+            <div className="w-screen overflow-x-hidden">{children}</div>
+          </Suspense>
         </main>
       </body>
     </html>

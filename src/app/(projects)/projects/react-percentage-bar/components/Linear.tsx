@@ -8,7 +8,7 @@ import MultipleObserver from "./MultipleObserver";
 const Card = dynamic(() => import("./Card"), {
   ssr: true,
   loading: () => (
-    <Skeleton className="h-[250px] w-full max-w-sm rounded-xl bg-slate-300" />
+    <Skeleton className="mx-3 h-[250px] w-full max-w-sm rounded-xl bg-slate-300" />
   ),
 });
 
@@ -32,13 +32,12 @@ const Linear = () => {
                 displayName: () => "LinearProgressBar",
                 maxInlineAttributesLineLength: 1,
                 useBooleanShorthandSyntax: false,
+                filterProps:["width"],
                 sortProps: true,
               })}
               title={code.title}
             >
-              <MultipleObserver>
-                <div className="scale-x-[0.85]">{code.element} </div>
-              </MultipleObserver>
+              <MultipleObserver>{code.element}</MultipleObserver>
             </Card>
           );
         })}
