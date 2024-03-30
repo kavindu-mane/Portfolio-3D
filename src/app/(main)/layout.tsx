@@ -125,7 +125,7 @@ export default function RootLayout({
           <Navbar />
           <div
             style={{
-              backgroundImage: "url(/assets/images/background.jpg)",
+              backgroundImage: "url(/assets/images/background.webp)",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
