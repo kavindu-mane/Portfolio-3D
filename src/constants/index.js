@@ -135,7 +135,7 @@ export const socialLinks = [
     name: "Contact",
     iconUrl:
       "https://raw.githubusercontent.com/devicons/devicon/master/icons/css/css-original.svg",
-    link: "/contact",
+    link: "/contacts",
   },
   {
     name: "GitHub",
